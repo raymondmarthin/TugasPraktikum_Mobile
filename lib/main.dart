@@ -44,14 +44,14 @@ class _MainPageState extends State<MainPage> {
   int _counter = 0;
 
   Future<void> _callMahasiswa() async {
-    if (mahasiswa == null || mahasiswa!['kontak'].isEmpty) {
+    if (mahasiswa == null || mahasiswa!['hp'].isEmpty) {
       ScaffoldMessenger.of(
         context,
       ).showSnackBar(const SnackBar(content: Text('Nomor tidak tersedia')));
       return;
     }
 
-    String nomor = mahasiswa!['kontak'];
+    String nomor = mahasiswa!['hp'];
     if (nomor.startsWith('0')) {
       nomor = '+62${nomor.substring(1)}';
     }
@@ -185,9 +185,13 @@ class _MainPageState extends State<MainPage> {
                               ),
                             ),
                             const SizedBox(height: 6),
-                            Text("Umur: ${mahasiswa!['umur']}"),
+                            Text("NIM: ${mahasiswa!['nim']}"),
+                            Text("Email: ${mahasiswa!['email']}"),
                             Text("Alamat: ${mahasiswa!['alamat']}"),
-                            Text("Kontak: ${mahasiswa!['kontak']}"),
+                            Text("Nomor HP: ${mahasiswa!['hp']}"),
+                            Text(
+                              "Jenis Kelamin: ${mahasiswa!['jenisKelamin']}",
+                            ),
                           ],
                         ),
                       ),
